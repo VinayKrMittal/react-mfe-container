@@ -1,6 +1,6 @@
 # Micro FrontEnd Container Application
 
-This Repository Contains a container application for implementing micro frontend. In this we are intergrating https://github.com/VinayKrMittal/react-mfe-cats as a microfrontend and use their routes.
+This Repository Contains a container application for implementing micro frontend. In this we are integrating https://github.com/VinayKrMittal/react-mfe-cats as a microfrontend and use their routes.
 
 ## About File Structure and description
 - Contains a Microfrontend.js component which is responsible to calling render method of micro frontend repository and expose a `container-id` to render mfe.
