@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# Micro FrontEnd Container Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Repository Contains a container application for implementing micro frontend. In this we are intergrating https://github.com/VinayKrMittal/react-mfe-cats as a microfrontend and use their routes.
+
+## About File Structure and description
+- Contains a Microfrontend.js component which is responsible to calling render method of micro frontend repository and expose a `container-id` to render mfe.
+- routes folder contains all the routes related component
+
+### .env file contains the host of micro application and you can change this as per host of your mfe application.
+
+## The Flow 
+- First calling Microfrontend component when a micro application need to render. Sending host,history and name of mfe as a props. 
+- Making a scriptid: `micro-frontend-script-${name}` name would be microfrontend name.
+- then check if scriptid already exists in document means mfe code already rendered else fetch the asset-manifest file from microfrontend repo and load the main.js   file via script tag
+- call the ` window[render${name}](${name}-container, history);` 
+- here `window[render${name}]` method is already exposed via the mfe application and passing containerid and history in this
+- microfrontend application will be rendered on `containerid` that is `${name}-container`. So, it will be render in the part of a page.
 
 ## Available Scripts
 
@@ -24,47 +38,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
